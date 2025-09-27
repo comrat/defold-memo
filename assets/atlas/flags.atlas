@@ -1,0 +1,4 @@
+images {
+  image: "/assets/cards/cards.png"
+}
+extrude_borders: 2

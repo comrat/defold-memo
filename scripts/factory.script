@@ -1,0 +1,76 @@
+local function is_in_array(array, str)
+	for _, value in ipairs(array) do
+		if value == str then
+			return true
+		end
+	end
+	return false
+end
+
+local function create_grid(self, rows, columns)
+	local w = self.cell_width
+	local h = self.cell_height
+	local card = vmath.vector3(w, h, 0)
+	local scale = 0.43
+	local spacing = 10
+	local shift_x = self.padding.x
+	local shift_y = self.padding.y
+	local cards_count = columns * rows / 2
+	local game_flags = {}
+
+	for i = 0, cards_count - 1 do
+		local random_flag = math.random(1, #self.flags)
+		while is_in_array(game_flags, self.flags[random_flag]) do
+			random_flag = math.random(1, #self.flags)
+		end
+		table.insert(game_flags, self.flags[random_flag])
+		table.insert(game_flags, self.flags[random_flag])
+	end
+
+	for i = 0, #game_flags - 1 do
+		local random_index = math.random(1, #game_flags)
+		local tmp = game_flags[i + 1]
+		game_flags[i + 1] = game_flags[random_index]
+		game_flags[random_index] = tmp
+	end
+
+	for i = 0, columns - 1 do
+		for j = 0, rows - 1 do
+			local x = card.x * scale
+			local y = card.y * scale
+			local pos = vmath.vector3(i * (x + spacing) + shift_x, j * (y + spacing) + shift_y + spacing, 200)
+			local properties = {
+				flag = hash(game_flags[i * rows + j + 1]),
+				scale = scale,
+				row = i,
+				column = j,
+			}
+
+			local card_id = factory.create("#card_factory", pos, nil, properties)
+			go.set_scale(vmath.vector3(scale, scale, 1), card_id)
+			table.insert(self.cards, card_id)
+		end
+	end
+end
+
+function init(self)
+	local rows = 6
+	local columns = 8
+	math.randomseed(os.time())
+	self.padding = { x = 110, y = 50 }
+	self.cell_width = 330
+	self.cell_height = 250
+	self.flags = {
+		"alb", "aut", "bgr", "chl", "dom", "fin", "hrv", "irn", "jam", "kor", "lie", "mar", "mlt", "nzl", "prk", "rus",
+		"som", "syr", "tur", "uzb", "ang", "aze", "blr", "chn", "ecu", "fra", "hun", "irq", "jor", "kwt", "lka", "mda",
+		"mne", "pak", "prt", "sau", "srb", "tha", "twn", "ven", "arg", "bra", "col", "egy", "gbr", "idn", "isl", "jpn",
+		"lao", "ltu", "mex", "mng", "pan", "pse", "sdn", "svk", "tjk", "ukr", "vnm", "arm", "bel", "btn", "deu", "esp",
+		"geo", "ind", "isr", "kaz", "lbn", "lux", "mkd", "nld", "per", "qat", "sen", "svn", "tkm", "ury", "zaf", "aus",
+		"bgd", "can", "dnk", "est", "grc", "irl", "ita", "kgz", "lby", "lva", "mli", "nor", "pol", "rou", "sgp", "swe",
+		"tun", "usa"
+	}
+	
+	self.cards = {}
+	_G.cards = self.cards
+	create_grid(self, rows, columns)
+end

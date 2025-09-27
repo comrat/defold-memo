@@ -1,0 +1,65 @@
+local game_state = require "modules.game_state"
+
+go.property("flag", hash("back"))
+go.property("scale", 1)
+go.property("row", 0)
+go.property("column", 0)
+go.property("cell_width", 330)
+go.property("cell_height", 250)
+
+function init(self)
+	self.width = self.cell_width * self.scale
+	self.height = self.cell_height * self.scale
+	self.flipped = false
+end
+
+local function rotate(self, forced)
+	if (game_state.busy or self.flipped) and not forced then
+		return
+	end
+	
+	game_state.busy = true
+
+	local qx = vmath.quat_rotation_x(math.rad(0))
+	local qy = vmath.quat_rotation_y(math.rad(90))
+	local qz = vmath.quat_rotation_z(math.rad(0))
+	local target_rotation = qx * qy * qz
+
+	msg.post("main", "play_sound")
+	go.animate(".", "position.z", go.PLAYBACK_ONCE_FORWARD, 300, go.EASING_INOUTSINE, 0.5)
+	go.animate(".", "scale", go.PLAYBACK_ONCE_FORWARD, self.scale + 0.1, go.EASING_INOUTSINE, 0.5)
+	go.animate(".", "rotation", go.PLAYBACK_ONCE_FORWARD, target_rotation, go.EASING_INOUTSINE, 0.5, 0, function()
+		self.flipped = not self.flipped
+		local asset = self.flipped and self.flag or hash("back")
+		sprite.play_flipbook("#sprite", asset)
+		go.animate(".", "rotation", go.PLAYBACK_ONCE_FORWARD, vmath.quat_rotation_y(math.rad(0)), go.EASING_INOUTSINE, 0.5)
+		go.animate(".", "position.z", go.PLAYBACK_ONCE_FORWARD, 200, go.EASING_INOUTSINE, 0.5)
+		go.animate(".", "scale", go.PLAYBACK_ONCE_FORWARD, self.scale, go.EASING_INOUTSINE, 0.5, 0, function()
+			game_state.busy = false
+			if self.flipped then
+				msg.post("main", "flip", { url = msg.url(), flag = self.flag })
+			end
+		end)
+	end)
+end
+
+local function check(self, x, y)
+	local center = go.get_position()
+	local w = self.width
+	local h = self.height
+	local pos_x = center.x - w / 2
+	local pos_y = center.y - h / 2
+
+	if x >= pos_x and x <= pos_x + w and y >= pos_y and y <= pos_y + h then
+		rotate(self, false)
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("check") then
+		check(self, message.x, message.y)
+	else if message_id == hash("flip_back") then
+		rotate(self, true)
+	end
+	end
+end

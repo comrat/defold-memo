@@ -1,0 +1,70 @@
+name: "main"
+scale_along_z: 0
+embedded_instances {
+  id: "main"
+  data: "components {\n"
+  "  id: \"main\"\n"
+  "  component: \"/scripts/main.script\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"background\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"bg\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/main/main.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    x: 300.0\n"
+  "    y: -208.0\n"
+  "    z: -0.5\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"flip_sound\"\n"
+  "  type: \"sound\"\n"
+  "  data: \"sound: \\\"/assets/sound/flip.ogg\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 340.0
+    y: 568.0
+  }
+}
+embedded_instances {
+  id: "CardsFactory"
+  data: "components {\n"
+  "  id: \"factory1\"\n"
+  "  component: \"/scripts/factory.script\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"card_factory\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/game.objects/card.go\\\"\\n"
+  "\"\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "camera"
+  data: "embedded_components {\n"
+  "  id: \"camera\"\n"
+  "  type: \"camera\"\n"
+  "  data: \"aspect_ratio: 1.8\\n"
+  "fov: 0.7\\n"
+  "near_z: 0.1\\n"
+  "far_z: 910.0\\n"
+  "auto_aspect_ratio: 1\\n"
+  "orthographic_projection: 1\\n"
+  "\"\n"
+  "}\n"
+  ""
+  position {
+    x: 640.0
+    y: 360.0
+    z: 900.0
+  }
+}

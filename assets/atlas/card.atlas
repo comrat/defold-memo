@@ -1,0 +1,298 @@
+images {
+  image: "/assets/back.png"
+}
+images {
+  image: "/assets/cards/fra.png"
+}
+images {
+  image: "/assets/cards/gbr.png"
+}
+images {
+  image: "/assets/cards/geo.png"
+}
+images {
+  image: "/assets/cards/alb.png"
+}
+images {
+  image: "/assets/cards/ang.png"
+}
+images {
+  image: "/assets/cards/arg.png"
+}
+images {
+  image: "/assets/cards/arm.png"
+}
+images {
+  image: "/assets/cards/aus.png"
+}
+images {
+  image: "/assets/cards/aut.png"
+}
+images {
+  image: "/assets/cards/aze.png"
+}
+images {
+  image: "/assets/cards/bel.png"
+}
+images {
+  image: "/assets/cards/bgd.png"
+}
+images {
+  image: "/assets/cards/bgr.png"
+}
+images {
+  image: "/assets/cards/blr.png"
+}
+images {
+  image: "/assets/cards/bra.png"
+}
+images {
+  image: "/assets/cards/btn.png"
+}
+images {
+  image: "/assets/cards/can.png"
+}
+images {
+  image: "/assets/cards/chl.png"
+}
+images {
+  image: "/assets/cards/chn.png"
+}
+images {
+  image: "/assets/cards/col.png"
+}
+images {
+  image: "/assets/cards/deu.png"
+}
+images {
+  image: "/assets/cards/dnk.png"
+}
+images {
+  image: "/assets/cards/dom.png"
+}
+images {
+  image: "/assets/cards/ecu.png"
+}
+images {
+  image: "/assets/cards/egy.png"
+}
+images {
+  image: "/assets/cards/esp.png"
+}
+images {
+  image: "/assets/cards/est.png"
+}
+images {
+  image: "/assets/cards/fin.png"
+}
+images {
+  image: "/assets/cards/grc.png"
+}
+images {
+  image: "/assets/cards/hrv.png"
+}
+images {
+  image: "/assets/cards/hun.png"
+}
+images {
+  image: "/assets/cards/idn.png"
+}
+images {
+  image: "/assets/cards/ind.png"
+}
+images {
+  image: "/assets/cards/irl.png"
+}
+images {
+  image: "/assets/cards/irn.png"
+}
+images {
+  image: "/assets/cards/irq.png"
+}
+images {
+  image: "/assets/cards/isl.png"
+}
+images {
+  image: "/assets/cards/isr.png"
+}
+images {
+  image: "/assets/cards/ita.png"
+}
+images {
+  image: "/assets/cards/jam.png"
+}
+images {
+  image: "/assets/cards/jor.png"
+}
+images {
+  image: "/assets/cards/jpn.png"
+}
+images {
+  image: "/assets/cards/kaz.png"
+}
+images {
+  image: "/assets/cards/kgz.png"
+}
+images {
+  image: "/assets/cards/kor.png"
+}
+images {
+  image: "/assets/cards/kwt.png"
+}
+images {
+  image: "/assets/cards/lao.png"
+}
+images {
+  image: "/assets/cards/lbn.png"
+}
+images {
+  image: "/assets/cards/lby.png"
+}
+images {
+  image: "/assets/cards/lie.png"
+}
+images {
+  image: "/assets/cards/lka.png"
+}
+images {
+  image: "/assets/cards/ltu.png"
+}
+images {
+  image: "/assets/cards/lux.png"
+}
+images {
+  image: "/assets/cards/lva.png"
+}
+images {
+  image: "/assets/cards/mar.png"
+}
+images {
+  image: "/assets/cards/mda.png"
+}
+images {
+  image: "/assets/cards/mex.png"
+}
+images {
+  image: "/assets/cards/mkd.png"
+}
+images {
+  image: "/assets/cards/mli.png"
+}
+images {
+  image: "/assets/cards/mlt.png"
+}
+images {
+  image: "/assets/cards/mne.png"
+}
+images {
+  image: "/assets/cards/mng.png"
+}
+images {
+  image: "/assets/cards/nld.png"
+}
+images {
+  image: "/assets/cards/nor.png"
+}
+images {
+  image: "/assets/cards/nzl.png"
+}
+images {
+  image: "/assets/cards/pak.png"
+}
+images {
+  image: "/assets/cards/pan.png"
+}
+images {
+  image: "/assets/cards/per.png"
+}
+images {
+  image: "/assets/cards/pol.png"
+}
+images {
+  image: "/assets/cards/prk.png"
+}
+images {
+  image: "/assets/cards/prt.png"
+}
+images {
+  image: "/assets/cards/pse.png"
+}
+images {
+  image: "/assets/cards/qat.png"
+}
+images {
+  image: "/assets/cards/rou.png"
+}
+images {
+  image: "/assets/cards/rus.png"
+}
+images {
+  image: "/assets/cards/sau.png"
+}
+images {
+  image: "/assets/cards/sdn.png"
+}
+images {
+  image: "/assets/cards/sen.png"
+}
+images {
+  image: "/assets/cards/sgp.png"
+}
+images {
+  image: "/assets/cards/som.png"
+}
+images {
+  image: "/assets/cards/srb.png"
+}
+images {
+  image: "/assets/cards/svk.png"
+}
+images {
+  image: "/assets/cards/svn.png"
+}
+images {
+  image: "/assets/cards/swe.png"
+}
+images {
+  image: "/assets/cards/syr.png"
+}
+images {
+  image: "/assets/cards/tha.png"
+}
+images {
+  image: "/assets/cards/tjk.png"
+}
+images {
+  image: "/assets/cards/tkm.png"
+}
+images {
+  image: "/assets/cards/tun.png"
+}
+images {
+  image: "/assets/cards/tur.png"
+}
+images {
+  image: "/assets/cards/twn.png"
+}
+images {
+  image: "/assets/cards/ukr.png"
+}
+images {
+  image: "/assets/cards/ury.png"
+}
+images {
+  image: "/assets/cards/usa.png"
+}
+images {
+  image: "/assets/cards/uzb.png"
+}
+images {
+  image: "/assets/cards/ven.png"
+}
+images {
+  image: "/assets/cards/vnm.png"
+}
+images {
+  image: "/assets/cards/zaf.png"
+}
+extrude_borders: 2

@@ -1,0 +1,39 @@
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	self.first = nil
+	self.second = nil
+end
+
+local function call_check_on_all_cards(self, x, y)
+	for _, card_id in ipairs(_G.cards or {}) do
+		msg.post(card_id, "check", {x = x, y = y})
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and action.pressed then
+		call_check_on_all_cards(self, action.x, action.y)
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("flip") then
+		if self.first == nil then
+			self.first = message
+			return
+		end
+
+		self.second = message
+		if self.second.flag == self.first.flag then
+			print("MATCH")
+		else
+			msg.post(self.first.url, "flip_back")
+			msg.post(self.second.url, "flip_back")
+		end
+		self.first = nil
+		self.second = nil
+	else if message_id == hash("play_sound") then
+		msg.post("#flip_sound", "play_sound")
+	end
+	end
+end
